@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio de Animación</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #001f3f;
+            color: #e0f7ff;
+        }
+
+        .slider {
+            display: flex;
+            width: 100%; /* 100vw por sección */
+            height: 100vh;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #003366;
+            padding: 0px;
+            box-shadow: inset 0 0 10px #001f3f;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #004080;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar a {
+            color: #e0f7ff;
+            padding: 14px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .navbar a:hover {
+            background-color: #0059b3;
+            color: #ffffff;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 30px; 
+            margin-right: 7px;
+        }
+
+        .navbar .logo span {
+            color: #e0f7ff;
+            font-family: Cambria, serif;
+            font-weight: bold;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            max-width: 150px;
+            max-height: 150px;
+            border: 3px solid #007acc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e0f7ff;
+        }
+
+        img, video {
+            max-width: 80%;
+            max-height: 60%;
+            margin: 10px;
+            border: 3px solid #007acc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #004080;
+            color: #e0f7ff;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        footer a {
+            color: #e0f7ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="Yopi.jpg" alt="Logo">
+            <span>JJ MORENO</span>
+        </div>
+        <div>
+            <a onclick="showSlide(0)">Demo Reel</a>
+            <a onclick="showSlide(1)">Dibujos</a>
+            <a onclick="showSlide(2)">Animación y VFX</a>
+        </div>
+    </div>
+
+    <!-- Contenedor del slider -->
+    <div class="slider" id="slider">
+        <!-- Sección Demo Reel -->
+        <div class="slide" id="Demo-Reel">
+            <h2>Demo Reel</h2>
+            <video controls>
+                <source src="DEMO REEL _ JULIANM.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Sección Dibujos -->
+        <div class="slide" id="Dibujos">
+            <h2>Dibujos</h2>
+            <div class="gallery">
+                <img src="dibujo1.png" alt="Dibujo 1">
+                <img src="dibujo2.png" alt="Dibujo 2">
+                <img src="dibujo3.png" alt="Dibujo 3">
+                <img src="dibujo4.png" alt="Dibujo 4">
+                <img src="dibujo5.png" alt="Dibujo 5">
+                <img src="dibujo6.png" alt="Dibujo 6">
+                <img src="dibujo7.png" alt="Dibujo 7">
+                <img src="dibujo8.png" alt="Dibujo 8">
+            </div>
+        </div>
+
+        <!-- Sección Animaciones -->
+<!-- Sección Animaciones -->
+<div class="slide" id="Animaciones" style="overflow-y: auto;">
+    <h2>Animaciones y VFX</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px; padding-top: 100%;">
+        <video controls>
+            <source src="Animacion1.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="SUEÑO NEGRO - CORTOMETRAJE ACADEMICO.mp4" type="video/mp4">
+        </video>
+        <img src="Editado.png" alt="Editado" style="max-width: 80%; max-height: 400px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);">
+        <h1><a href="https://www.youtube.com/@_JulianM_" target="_blank">Sigueme en Youtube</a></h1>
+    </div>
+</div>
+
+
+    <footer>
+        <a href="https://www.instagram.com/_julianm03_/" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100065913243681" target="_blank">Facebook</a>
+        <a href="https://www.tiktok.com/@julianm023?_t=8rcQLDg1nHU&_r=1">Otro enlace</a>
+    </footer>
+
+    <script>
+        function showSlide(index) {
+            const slider = document.getElementById('slider');
+            const offset = index * -100; // Calcula el desplazamiento del slider
+            slider.style.transform = `translateX(${offset}vw)`;
+        }
+    </script>
+</body>
+</html>
